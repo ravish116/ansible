@@ -1,0 +1,9 @@
+---
+# tasks file for apacheserver
+- name: Install Apache Web server
+  yum: name={{ package }}  state=present
+- name: to start the Apache Web Server
+  service: name=httpd state=started
+- name: Install wget
+  yum: name=wget state=present
+

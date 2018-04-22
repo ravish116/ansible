@@ -1,0 +1,34 @@
+# test yml file
+---
+ - name: Configure apache webserver
+   hosts: Appserver
+   become: true
+
+**/
+   tasks:
+     - name: Install Apache Web server
+       yum:
+        name: httpd
+        state: present
+     - name: to start the Apache Web Server
+       service: name=httpd state=started
+     - name: Install wget
+       yum:
+        name: wget
+        state: present
+
+     - name: install firefox
+       yum:
+        name: firefox
+        state: present
+     - name: to start the firefox service
+       service: name=firefox state=started
+
+     - name: install MySQL
+       yum: 
+        name: pakage={{ item }} state=installed force=yes update_cache=yes
+        with_items:
+         - mysql-server
+         - mysql-client
+         - mysql-community
+/**

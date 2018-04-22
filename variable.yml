@@ -1,0 +1,9 @@
+---
+ - name: Configure apache webserver
+   hosts: Appserver
+   become: true
+   vars:
+     package: unzip
+   tasks:
+     - name: To install unzip application
+       yum: name={{ package }} state=latest

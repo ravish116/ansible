@@ -1,0 +1,11 @@
+---
+ - name: To learn a variable
+   hosts: Appserver
+   become: true
+   vars:
+     packages: ['firefox','gedit']
+
+   tasks:
+     - name: To install pakages
+       yum: name={{ item }} state=latest
+       with_items: "{{ packages }}"

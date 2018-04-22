@@ -1,0 +1,8 @@
+# test yml file
+---
+ - name: Configure apache webserver
+   hosts: Appserver
+   become: true
+
+   roles: 
+     - apacheserver
